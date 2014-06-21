@@ -4,118 +4,135 @@
 		<title>Sudoku Game</title>
 		<link rel="stylesheet" type="text/css" href="css/html5reset-1.6.1.css">
 		<style type="text/css">
+
 			.sq_2 {
 				background: red;
 			}
 
-			#main {
-				width: 75%;
+			#title {
+				margin-top: 50px;
+				font-size: 2rem;
+				text-align: center;
+			}
+
+			#board {
 				margin: 0 auto;
+			}
+
+			input[type="number"] {
+				border: none;
+				text-align: center;
+				width: 100px;
+				height: 80px;
+			}
+
+			table, tr, td {
+				border: 10px groove grey;
 			}
 		</style>
 	</head>
 	<body>
 		<div id="main">
-			<h1>Sudoku</h1>
+			<h1 id="title">Sudoku</h1>
 			<table id="board">
 				<tr id="row_1">
-					<td class="col_1 sq_1"></td>
-					<td class="col_2 sq_1"></td>
-					<td class="col_3 sq_1"></td>
-					<td class="col_4 sq_2"></td>
-					<td class="col_5 sq_2"></td>
-					<td class="col_6 sq_2"></td>
-					<td class="col_7 sq_3"></td>
-					<td class="col_8 sq_3"></td>
-					<td class="col_9 sq_3"></td>
+					<td class="col_1 sq_1"><input type="number"></td>
+					<td class="col_2 sq_1"><input type="number"></td>
+					<td class="col_3 sq_1"><input type="number"></td>
+					<td class="col_4 sq_2"><input type="number"></td>
+					<td class="col_5 sq_2"><input type="number"></td>
+					<td class="col_6 sq_2"><input type="number"></td>
+					<td class="col_7 sq_3"><input type="number"></td>
+					<td class="col_8 sq_3"><input type="number"></td>
+					<td class="col_9 sq_3"><input type="number"></td>
 				</tr>
 				<tr id="row_2">
-					<td class="col_1 sq_1"></td>
-					<td class="col_2 sq_1"></td>
-					<td class="col_3 sq_1"></td>
-					<td class="col_4 sq_2"></td>
-					<td class="col_5 sq_2"></td>
-					<td class="col_6 sq_2"></td>
-					<td class="col_7 sq_3"></td>
-					<td class="col_8 sq_3"></td>
-					<td class="col_9 sq_3"></td>
+					<td class="col_1 sq_1"><input type="number"></td>
+					<td class="col_2 sq_1"><input type="number"></td>
+					<td class="col_3 sq_1"><input type="number"></td>
+					<td class="col_4 sq_2"><input type="number"></td>
+					<td class="col_5 sq_2"><input type="number"></td>
+					<td class="col_6 sq_2"><input type="number"></td>
+					<td class="col_7 sq_3"><input type="number"></td>
+					<td class="col_8 sq_3"><input type="number"></td>
+					<td class="col_9 sq_3"><input type="number"></td>
 				</tr>
 				<tr id="row_3">
-					<td class="col_1 sq_1"></td>
-					<td class="col_2 sq_1"></td>
-					<td class="col_3 sq_1"></td>
-					<td class="col_4 sq_2"></td>
-					<td class="col_5 sq_2"></td>
-					<td class="col_6 sq_2"></td>
-					<td class="col_7 sq_3"></td>
-					<td class="col_8 sq_3"></td>
-					<td class="col_9 sq_3"></td>
+					<td class="col_1 sq_1"><input type="number"></td>
+					<td class="col_2 sq_1"><input type="number"></td>
+					<td class="col_3 sq_1"><input type="number"></td>
+					<td class="col_4 sq_2"><input type="number"></td>
+					<td class="col_5 sq_2"><input type="number"></td>
+					<td class="col_6 sq_2"><input type="number"></td>
+					<td class="col_7 sq_3"><input type="number"></td>
+					<td class="col_8 sq_3"><input type="number"></td>
+					<td class="col_9 sq_3"><input type="number"></td>
 				</tr>
 				<tr id="row_4">
-					<td class="col_1 sq_4"></td>
-					<td class="col_2 sq_4"></td>
-					<td class="col_3 sq_4"></td>
-					<td class="col_4 sq_5"></td>
-					<td class="col_5 sq_5"></td>
-					<td class="col_6 sq_5"></td>
-					<td class="col_7 sq_6"></td>
-					<td class="col_8 sq_6"></td>
-					<td class="col_9 sq_6"></td>
+					<td class="col_1 sq_4"><input type="number"></td>
+					<td class="col_2 sq_4"><input type="number"></td>
+					<td class="col_3 sq_4"><input type="number"></td>
+					<td class="col_4 sq_5"><input type="number"></td>
+					<td class="col_5 sq_5"><input type="number"></td>
+					<td class="col_6 sq_5"><input type="number"></td>
+					<td class="col_7 sq_6"><input type="number"></td>
+					<td class="col_8 sq_6"><input type="number"></td>
+					<td class="col_9 sq_6"><input type="number"></td>
 				</tr>
 				<tr id="row_5">
-					<td class="col_1 sq_4"></td>
-					<td class="col_2 sq_4"></td>
-					<td class="col_3 sq_4"></td>
-					<td class="col_4 sq_5"></td>
-					<td class="col_5 sq_5"></td>
-					<td class="col_6 sq_5"></td>
-					<td class="col_7 sq_6"></td>
-					<td class="col_8 sq_6"></td>
-					<td class="col_9 sq_6"></td>
+					<td class="col_1 sq_4"><input type="number"></td>
+					<td class="col_2 sq_4"><input type="number"></td>
+					<td class="col_3 sq_4"><input type="number"></td>
+					<td class="col_4 sq_5"><input type="number"></td>
+					<td class="col_5 sq_5"><input type="number"></td>
+					<td class="col_6 sq_5"><input type="number"></td>
+					<td class="col_7 sq_6"><input type="number"></td>
+					<td class="col_8 sq_6"><input type="number"></td>
+					<td class="col_9 sq_6"><input type="number"></td>
 				</tr>
 				<tr id="row_6">
-					<td class="col_1 sq_4"></td>
-					<td class="col_2 sq_4"></td>
-					<td class="col_3 sq_4"></td>
-					<td class="col_4 sq_5"></td>
-					<td class="col_5 sq_5"></td>
-					<td class="col_6 sq_5"></td>
-					<td class="col_7 sq_6"></td>
-					<td class="col_8 sq_6"></td>
-					<td class="col_9 sq_6"></td>
+					<td class="col_1 sq_4"><input type="number"></td>
+					<td class="col_2 sq_4"><input type="number"></td>
+					<td class="col_3 sq_4"><input type="number"></td>
+					<td class="col_4 sq_5"><input type="number"></td>
+					<td class="col_5 sq_5"><input type="number"></td>
+					<td class="col_6 sq_5"><input type="number"></td>
+					<td class="col_7 sq_6"><input type="number"></td>
+					<td class="col_8 sq_6"><input type="number"></td>
+					<td class="col_9 sq_6"><input type="number"></td>
 				</tr>
 				<tr id="row_7">
-					<td class="col_1 sq_7"></td>
-					<td class="col_2 sq_7"></td>
-					<td class="col_3 sq_7"></td>
-					<td class="col_4 sq_8"></td>
-					<td class="col_5 sq_8"></td>
-					<td class="col_6 sq_8"></td>
-					<td class="col_7 sq_9"></td>
-					<td class="col_8 sq_9"></td>
-					<td class="col_9 sq_9"></td>
+					<td class="col_1 sq_7"><input type="number"></td>
+					<td class="col_2 sq_7"><input type="number"></td>
+					<td class="col_3 sq_7"><input type="number"></td>
+					<td class="col_4 sq_8"><input type="number"></td>
+					<td class="col_5 sq_8"><input type="number"></td>
+					<td class="col_6 sq_8"><input type="number"></td>
+					<td class="col_7 sq_9"><input type="number"></td>
+					<td class="col_8 sq_9"><input type="number"></td>
+					<td class="col_9 sq_9"><input type="number"></td>
 				</tr>
 				<tr id="row_8">
-					<td class="col_1 sq_7"></td>
-					<td class="col_2 sq_7"></td>
-					<td class="col_3 sq_7"></td>
-					<td class="col_4 sq_8"></td>
-					<td class="col_5 sq_8"></td>
-					<td class="col_6 sq_8"></td>
-					<td class="col_7 sq_9"></td>
-					<td class="col_8 sq_9"></td>
-					<td class="col_9 sq_9"></td>
+					<td class="col_1 sq_7"><input type="number"></td>
+					<td class="col_2 sq_7"><input type="number"></td>
+					<td class="col_3 sq_7"><input type="number"></td>
+					<td class="col_4 sq_8"><input type="number"></td>
+					<td class="col_5 sq_8"><input type="number"></td>
+					<td class="col_6 sq_8"><input type="number"></td>
+					<td class="col_7 sq_9"><input type="number"></td>
+					<td class="col_8 sq_9"><input type="number"></td>
+					<td class="col_9 sq_9"><input type="number"></td>
 				</tr>
 				<tr id="row_9">
-					<td class="col_1 sq_7"></td>
-					<td class="col_2 sq_7"></td>
-					<td class="col_3 sq_7"></td>
-					<td class="col_4 sq_8"></td>
-					<td class="col_5 sq_8"></td>
-					<td class="col_6 sq_8"></td>
-					<td class="col_7 sq_9"></td>
-					<td class="col_8 sq_9"></td>
-					<td class="col_9 sq_9"></td>
+					<td class="col_1 sq_7"><input type="number"></td>
+					<td class="col_2 sq_7"><input type="number"></td>
+					<td class="col_3 sq_7"><input type="number"></td>
+					<td class="col_4 sq_8"><input type="number"></td>
+					<td class="col_5 sq_8"><input type="number"></td>
+					<td class="col_6 sq_8"><input type="number"></td>
+					<td class="col_7 sq_9"><input type="number"></td>
+					<td class="col_8 sq_9"><input type="number"></td>
+					<td class="col_9 sq_9"><input type="number"></td>
 				</tr>
 			</table>
 		</div>
