@@ -9,6 +9,18 @@
 				background: red;
 			}
 
+			#notification_container {
+				text-align: center;
+			}
+
+			.error {
+
+			}
+
+			.hidden {
+				display: none;
+			}
+
 			#title {
 				margin-top: 50px;
 				font-size: 2rem;
@@ -48,6 +60,9 @@
 	<body>
 		<div id="main">
 			<h1 id="title">Sudoku</h1>
+			<div id="notification_container">
+				<p id="invalid_input" class="error hidden">You can only enter the numbers 1-9.</p>
+			</div>
 			<table id="board">
 				<tr id="row_1">
 					<td class="col_1 sq_1"><input type="number" min="1" max="9" step="1" readonly value="5"></td>
@@ -156,8 +171,21 @@
 		<script type="text/javascript">
 			(function() {
 				$(document).ready(function() {
-					$('input[type="number"]').on('input', function() {
-						alert($(this).val());
+					$('#board').on('input', function(event) {
+						var $input = $(event.target), input = $input.val();
+
+						//check if input is valid
+						if (input.length === 1 && /[1-9]/.test(input)) {
+							//check if user won game
+							
+						} else if (input.length !== 0 || !$input[0].valueAsNumber) {
+							//input is not valid, show error message and clear input
+							$input.val("");
+							$("#invalid_input").removeClass("hidden");
+							setTimeout(function() {
+								$("#invalid_input").addClass("hidden");
+							}, 1000);
+						}
 					});
 				});
 			})();
