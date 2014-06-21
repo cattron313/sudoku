@@ -3,7 +3,11 @@
 	<head>
 		<title>Sudoku Game</title>
 		<link rel="stylesheet" type="text/css" href="css/html5reset-1.6.1.css"/>
+		<link href='http://fonts.googleapis.com/css?family=Maven+Pro:400,700' rel='stylesheet' type='text/css'>
 		<style type="text/css">
+			#main {
+				font-family: "Maven Pro", Helvetica, Arial, sans-serif;
+			}
 
 			.sq_2 {
 				background: red;
@@ -23,8 +27,9 @@
 
 			#title {
 				margin-top: 50px;
-				font-size: 2rem;
+				font-size: 3rem;
 				text-align: center;
+				font-weight: 700;
 			}
 
 			#board {
@@ -36,6 +41,8 @@
 				text-align: center;
 				width: 100px;
 				height: 80px;
+				font-family: inherit;
+				font-size: 2rem;
 			}
 
 			td {
@@ -187,7 +194,7 @@
 							var result = [];
 							$inputs.each(function(i){
 								if (i % 9 === 0) { result.push(""); } 
-								result[result.length - 1] += (i % 8 === 0) ? this.value : this.value + " "; 
+								result[result.length - 1] += (i % 9 === 8) ? this.value : this.value + " "; 
 							});
 							return result;
 						}
@@ -293,13 +300,9 @@
 								$('#board').off('input', handleSudokuUserInput);
 								alert("You won!");
 							}
-						} else if (input.length !== 0 || !$input[0].valueAsNumber) {
+						} else if (!$input[0].valueAsNumber || input.length > 1) {
 							//input is not valid, show error message and clear input
 							$input.val("");
-							$("#invalid_input").removeClass("hidden");
-							setTimeout(function() {
-								$("#invalid_input").addClass("hidden");
-							}, 1000);
 						}
 
 						function allInputsAreFilled($inputs) {

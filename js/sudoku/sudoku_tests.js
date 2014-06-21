@@ -22,6 +22,7 @@ QUnit.test( "Sudoku all rows valid", function( assert ) {
 
   	assert.ok( game.allRowsAreValid() === false, "Passed!" );
 
+  	//tests if error is thrown when no grid is provided.
   	game = new Sudoku();
   	assert.ok(game.allRowsAreValid() === false, "Passed!");
 });
