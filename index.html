@@ -165,11 +165,13 @@
 				</tr>
 			</table>
 		</div>
+		<div id="qunit"></div>
 
 		<!-- Using jQuery 2.1.1 because only supporting latest version of FF, Chrome, and IE 10 -->
 		<script src="js/jquery-2.1.1.min.js"></script>
+		<script src="js/underscore-min.js"></script>
 		<script type="text/javascript">
-			(function() {
+			(function(win) {
 				$(document).ready(function() {
 					$('#board').on('input', function(event) {
 						var $input = $(event.target), input = $input.val();
@@ -177,7 +179,7 @@
 						//check if input is valid
 						if (input.length === 1 && /[1-9]/.test(input)) {
 							//check if user won game
-							
+
 						} else if (input.length !== 0 || !$input[0].valueAsNumber) {
 							//input is not valid, show error message and clear input
 							$input.val("");
@@ -187,8 +189,56 @@
 							}, 1000);
 						}
 					});
+
+					//For testing, add Sudoku to window.  Remove when tests pass.
+					window.Sudoku = function(grid) {
+						if (grid) { this.grid = grid; }
+					};
+
+					Sudoku.prototype.isSolved = function() {
+						//will test if current grid has been solved
+						return this.allRowsAreValid() && this.allColsAreValid() && this.allSquaresAreValid();
+					};
+
+					Sudoku.prototype.allRowsAreValid = function() {
+						var result = true, digits = ["1","2","3","4","5","6","7","8","9"];
+						for (var i = 0; i < 9; i++) {
+							var userGuess = this.grid[i].split(" ").sort();
+							if (!digits.equal(userGuess)) {
+								result = false;
+								break;
+							}
+						}
+						return result;
+					};
+
+					Sudoku.prototype.allColsAreValid = function() {
+
+					};
+
+					Sudoku.prototype.allSquaresAreValid = function() {
+
+					};
+
+					Sudoku.prototype.generateGrid = function(id) {
+						this.tableID = id;
+						//will generate a grid based on an id of an HTML table
+					};
+
+					Array.prototype.equal = function(b) {
+						if (this === b) { return true; }
+						if (this == null || b == null || this.length != b.length) { return false; }
+
+						for (var i = 0; i < this.length; i++) {
+							if (this[i] !== b[i]) { return false; }
+						}
+						return true;
+					}
 				});
-			})();
+			})(window);
 		</script>
+		<!--Tests during development -->
+		<script src="js/qunit-1.14.0.js"></script>
+		<script src="js/sudoku/sudoku_tests.js"></script>
 	</body>
 </html>
