@@ -165,11 +165,9 @@
 				</tr>
 			</table>
 		</div>
-		<div id="qunit"></div>
 
 		<!-- Using jQuery 2.1.1 because only supporting latest version of FF, Chrome, and IE 10 -->
 		<script src="js/jquery-2.1.1.min.js"></script>
-		<script src="js/underscore-min.js"></script>
 		<script type="text/javascript">
 			(function(win) {
 				$(document).ready(function() {
@@ -179,6 +177,8 @@
 						//check if input is valid
 						if (input.length === 1 && /[1-9]/.test(input)) {
 							//check if user won game
+
+							//first check if all inputs are filled in, then create a grid and run using the Sudoku is solved method.
 
 						} else if (input.length !== 0 || !$input[0].valueAsNumber) {
 							//input is not valid, show error message and clear input
@@ -204,7 +204,7 @@
 						var result = true, digits = ["1","2","3","4","5","6","7","8","9"];
 						for (var i = 0; i < 9; i++) {
 							var userGuess = this.grid[i].split(" ").sort();
-							if (!digits.equal(userGuess)) {
+							if (!digits.equals(userGuess)) {
 								result = false;
 								break;
 							}
@@ -213,11 +213,41 @@
 					};
 
 					Sudoku.prototype.allColsAreValid = function() {
-
+						var result = true, digits = ["1","2","3","4","5","6","7","8","9"];
+						for (var i = 0; i < 9; i++) {
+							var userGuess = [this.grid[0].charAt(i * 2),
+											 this.grid[1].charAt(i * 2),
+											 this.grid[2].charAt(i * 2),
+											 this.grid[3].charAt(i * 2),
+											 this.grid[4].charAt(i * 2),
+											 this.grid[5].charAt(i * 2),
+											 this.grid[6].charAt(i * 2),
+											 this.grid[7].charAt(i * 2),
+											 this.grid[8].charAt(i * 2)].sort();
+							if (!digits.equals(userGuess)) {
+								result = false;
+								break;
+							}
+						}
+						return result;
 					};
 
 					Sudoku.prototype.allSquaresAreValid = function() {
-
+						var result = true, digits = ["1","2","3","4","5","6","7","8","9"], length = 6;
+						for (var i = 0; i < 9; i += 3) {
+							for (var j = 0; j < 18; j += 6) {
+								if (j === 12) { length = 5; }
+								var userGuess = this.grid[i].substr(j, length).trim().split(" ")
+										.concat(this.grid[i + 1].substr(j, length).trim().split(" "))
+										.concat(this.grid[i + 2].substr(j, length).trim().split(" ")).sort();
+								if (!digits.equals(userGuess)) {
+									result = false;
+									break;
+								}
+							}
+							if (!result) { break; }
+						}
+						return result;
 					};
 
 					Sudoku.prototype.generateGrid = function(id) {
@@ -225,7 +255,7 @@
 						//will generate a grid based on an id of an HTML table
 					};
 
-					Array.prototype.equal = function(b) {
+					Array.prototype.equals = function(b) {
 						if (this === b) { return true; }
 						if (this == null || b == null || this.length != b.length) { return false; }
 
@@ -238,6 +268,7 @@
 			})(window);
 		</script>
 		<!--Tests during development -->
+		<div id="qunit"></div>
 		<script src="js/qunit-1.14.0.js"></script>
 		<script src="js/sudoku/sudoku_tests.js"></script>
 	</body>
