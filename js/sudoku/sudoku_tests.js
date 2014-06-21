@@ -21,6 +21,9 @@ QUnit.test( "Sudoku all rows valid", function( assert ) {
 					   "3 4 5 2 8 6 1 7 9"]);
 
   	assert.ok( game.allRowsAreValid() === false, "Passed!" );
+
+  	game = new Sudoku();
+  	assert.ok(game.allRowsAreValid() === false, "Passed!");
 });
 
 QUnit.test( "Sudoku all cols valid", function( assert ) {
