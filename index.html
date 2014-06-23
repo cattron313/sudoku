@@ -9,10 +9,7 @@
 				font-family: "Maven Pro", Helvetica, Arial, sans-serif;
 			}
 
-			#notification_container {
-				text-align: center;
-			}
-
+			/* highlight correctly filled-in squares, rows, and columns */
 			.correct_row, .correct_col, .correct_sq {
 				background: palegreen;
 			}
@@ -57,7 +54,6 @@
 				border-left: 15px groove grey;
 			}
 
-
 		</style>
 	</head>
 	<body>
@@ -65,103 +61,103 @@
 			<h1 id="title">Sudoku</h1>
 			<table id="board">
 				<tr id="row_1">
-					<td class="col_1 sq_1"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="5"/></td>
-					<td class="col_2 sq_1"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="3"/></td>
-					<td class="col_3 sq_1"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_4 sq_2"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_5 sq_2"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="7"/></td>
-					<td class="col_6 sq_2"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_7 sq_3"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_8 sq_3"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_9 sq_3"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_1 sq_1"><input type="tel" class="sudoku_input" readonly value="5"/></td>
+					<td class="col_2 sq_1"><input type="tel" class="sudoku_input" readonly value="3"/></td>
+					<td class="col_3 sq_1"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_4 sq_2"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_5 sq_2"><input type="tel" class="sudoku_input" readonly value="7"/></td>
+					<td class="col_6 sq_2"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_7 sq_3"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_8 sq_3"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_9 sq_3"><input type="tel" class="sudoku_input"/></td>
 				</tr>
 				<tr id="row_2">
-					<td class="col_1 sq_1"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="6"/></td>
-					<td class="col_2 sq_1"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_3 sq_1"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_4 sq_2"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="1"/></td>
-					<td class="col_5 sq_2"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="9"/></td>
-					<td class="col_6 sq_2"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="5"/></td>
-					<td class="col_7 sq_3"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_8 sq_3"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_9 sq_3"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_1 sq_1"><input type="tel" class="sudoku_input" readonly value="6"/></td>
+					<td class="col_2 sq_1"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_3 sq_1"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_4 sq_2"><input type="tel" class="sudoku_input" readonly value="1"/></td>
+					<td class="col_5 sq_2"><input type="tel" class="sudoku_input" readonly value="9"/></td>
+					<td class="col_6 sq_2"><input type="tel" class="sudoku_input" readonly value="5"/></td>
+					<td class="col_7 sq_3"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_8 sq_3"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_9 sq_3"><input type="tel" class="sudoku_input"/></td>
 				</tr>
 				<tr id="row_3">
-					<td class="col_1 sq_1"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_2 sq_1"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="9"/></td>
-					<td class="col_3 sq_1"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="8"/></td>
-					<td class="col_4 sq_2"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_5 sq_2"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_6 sq_2"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_7 sq_3"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_8 sq_3"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="6"/></td>
-					<td class="col_9 sq_3"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_1 sq_1"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_2 sq_1"><input type="tel" class="sudoku_input" readonly value="9"/></td>
+					<td class="col_3 sq_1"><input type="tel" class="sudoku_input" readonly value="8"/></td>
+					<td class="col_4 sq_2"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_5 sq_2"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_6 sq_2"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_7 sq_3"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_8 sq_3"><input type="tel" class="sudoku_input" readonly value="6"/></td>
+					<td class="col_9 sq_3"><input type="tel" class="sudoku_input"/></td>
 				</tr>
 				<tr id="row_4">
-					<td class="col_1 sq_4"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="8"/></td>
-					<td class="col_2 sq_4"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_3 sq_4"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_4 sq_5"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_5 sq_5"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="6"/></td>
-					<td class="col_6 sq_5"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_7 sq_6"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_8 sq_6"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_9 sq_6"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="3"/></td>
+					<td class="col_1 sq_4"><input type="tel" class="sudoku_input" readonly value="8"/></td>
+					<td class="col_2 sq_4"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_3 sq_4"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_4 sq_5"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_5 sq_5"><input type="tel" class="sudoku_input" readonly value="6"/></td>
+					<td class="col_6 sq_5"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_7 sq_6"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_8 sq_6"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_9 sq_6"><input type="tel" class="sudoku_input" readonly value="3"/></td>
 				</tr>
 				<tr id="row_5">
-					<td class="col_1 sq_4"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="4"/></td>
-					<td class="col_2 sq_4"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_3 sq_4"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_4 sq_5"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="8"/></td>
-					<td class="col_5 sq_5"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_6 sq_5"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="3"/></td>
-					<td class="col_7 sq_6"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_8 sq_6"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_9 sq_6"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="1"/></td>
+					<td class="col_1 sq_4"><input type="tel" class="sudoku_input" readonly value="4"/></td>
+					<td class="col_2 sq_4"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_3 sq_4"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_4 sq_5"><input type="tel" class="sudoku_input" readonly value="8"/></td>
+					<td class="col_5 sq_5"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_6 sq_5"><input type="tel" class="sudoku_input" readonly value="3"/></td>
+					<td class="col_7 sq_6"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_8 sq_6"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_9 sq_6"><input type="tel" class="sudoku_input" readonly value="1"/></td>
 				</tr>
 				<tr id="row_6">
-					<td class="col_1 sq_4"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="7"/></td>
-					<td class="col_2 sq_4"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_3 sq_4"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_4 sq_5"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_5 sq_5"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="2"/></td>
-					<td class="col_6 sq_5"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_7 sq_6"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_8 sq_6"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_9 sq_6"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="6"/></td>
+					<td class="col_1 sq_4"><input type="tel" class="sudoku_input" readonly value="7"/></td>
+					<td class="col_2 sq_4"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_3 sq_4"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_4 sq_5"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_5 sq_5"><input type="tel" class="sudoku_input" readonly value="2"/></td>
+					<td class="col_6 sq_5"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_7 sq_6"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_8 sq_6"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_9 sq_6"><input type="tel" class="sudoku_input" readonly value="6"/></td>
 				</tr>
 				<tr id="row_7">
-					<td class="col_1 sq_7"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_2 sq_7"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="6"/></td>
-					<td class="col_3 sq_7"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_4 sq_8"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_5 sq_8"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_6 sq_8"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_7 sq_9"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="2"/></td>
-					<td class="col_8 sq_9"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="8"/></td>
-					<td class="col_9 sq_9"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_1 sq_7"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_2 sq_7"><input type="tel" class="sudoku_input" readonly value="6"/></td>
+					<td class="col_3 sq_7"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_4 sq_8"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_5 sq_8"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_6 sq_8"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_7 sq_9"><input type="tel" class="sudoku_input" readonly value="2"/></td>
+					<td class="col_8 sq_9"><input type="tel" class="sudoku_input" readonly value="8"/></td>
+					<td class="col_9 sq_9"><input type="tel" class="sudoku_input"/></td>
 				</tr>
 				<tr id="row_8">
-					<td class="col_1 sq_7"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_2 sq_7"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_3 sq_7"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_4 sq_8"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="4"/></td>
-					<td class="col_5 sq_8"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="1"/></td>
-					<td class="col_6 sq_8"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="9"/></td>
-					<td class="col_7 sq_9"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_8 sq_9"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_9 sq_9"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="5"/></td>
+					<td class="col_1 sq_7"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_2 sq_7"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_3 sq_7"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_4 sq_8"><input type="tel" class="sudoku_input" readonly value="4"/></td>
+					<td class="col_5 sq_8"><input type="tel" class="sudoku_input" readonly value="1"/></td>
+					<td class="col_6 sq_8"><input type="tel" class="sudoku_input" readonly value="9"/></td>
+					<td class="col_7 sq_9"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_8 sq_9"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_9 sq_9"><input type="tel" class="sudoku_input" readonly value="5"/></td>
 				</tr>
 				<tr id="row_9">
-					<td class="col_1 sq_7"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_2 sq_7"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_3 sq_7"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_4 sq_8"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_5 sq_8"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="8"/></td>
-					<td class="col_6 sq_8"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_7 sq_9"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
-					<td class="col_8 sq_9"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="7"/></td>
-					<td class="col_9 sq_9"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="9"/></td>
+					<td class="col_1 sq_7"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_2 sq_7"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_3 sq_7"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_4 sq_8"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_5 sq_8"><input type="tel" class="sudoku_input" readonly value="8"/></td>
+					<td class="col_6 sq_8"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_7 sq_9"><input type="tel" class="sudoku_input"/></td>
+					<td class="col_8 sq_9"><input type="tel" class="sudoku_input" readonly value="7"/></td>
+					<td class="col_9 sq_9"><input type="tel" class="sudoku_input" readonly value="9"/></td>
 				</tr>
 			</table>
 		</div>
@@ -377,11 +373,11 @@
 							//check if user won game
 							//first check if all inputs are filled in, then use isSolved method.
 							if (allInputsAreFilled($inputs) && game.isSolved()) {
-								$('#board').off('change', handleSudokuUserInput);
+								$('#board').off('keyup', handleSudokuUserInput);
 								alert("You won!");
 							}
 						} else if (!$input[0].valueAsNumber || input.length > 1) {
-							//input is not valid
+							//input is not valid, remove highlighting classes and clear input
 							$input.parent().parent().removeClass("correct_row");
 							$(".col_" + colNum.toString()).removeClass("correct_col");
 							$(".sq_" + sqNum.toString()).removeClass("correct_sq");
@@ -409,7 +405,7 @@
 						}
 					}
 
-					$('#board').on('change', handleSudokuUserInput);
+					$('#board').on('keyup', handleSudokuUserInput);
 				});
 			})(window);
 		</script>
