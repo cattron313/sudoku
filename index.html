@@ -9,16 +9,12 @@
 				font-family: "Maven Pro", Helvetica, Arial, sans-serif;
 			}
 
-			.sq_2 {
-				background: red;
-			}
-
 			#notification_container {
 				text-align: center;
 			}
 
-			.error {
-
+			.correct_row, .correct_col, .correct_sq {
+				background: palegreen;
 			}
 
 			.hidden {
@@ -67,108 +63,105 @@
 	<body>
 		<div id="main">
 			<h1 id="title">Sudoku</h1>
-			<div id="notification_container">
-				<p id="invalid_input" class="error hidden">You can only enter the numbers 1-9.</p>
-			</div>
 			<table id="board">
 				<tr id="row_1">
-					<td class="col_1 sq_1"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="5"/></td>
-					<td class="col_2 sq_1"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="3"/></td>
-					<td class="col_3 sq_1"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_4 sq_2"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_5 sq_2"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="7"/></td>
-					<td class="col_6 sq_2"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_7 sq_3"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_8 sq_3"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_9 sq_3"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
+					<td class="col_1 sq_1"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="5"/></td>
+					<td class="col_2 sq_1"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="3"/></td>
+					<td class="col_3 sq_1"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_4 sq_2"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_5 sq_2"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="7"/></td>
+					<td class="col_6 sq_2"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_7 sq_3"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_8 sq_3"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_9 sq_3"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
 				</tr>
 				<tr id="row_2">
-					<td class="col_1 sq_1"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="6"/></td>
-					<td class="col_2 sq_1"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_3 sq_1"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_4 sq_2"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="1"/></td>
-					<td class="col_5 sq_2"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="9"/></td>
-					<td class="col_6 sq_2"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="5"/></td>
-					<td class="col_7 sq_3"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_8 sq_3"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_9 sq_3"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
+					<td class="col_1 sq_1"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="6"/></td>
+					<td class="col_2 sq_1"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_3 sq_1"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_4 sq_2"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="1"/></td>
+					<td class="col_5 sq_2"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="9"/></td>
+					<td class="col_6 sq_2"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="5"/></td>
+					<td class="col_7 sq_3"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_8 sq_3"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_9 sq_3"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
 				</tr>
 				<tr id="row_3">
-					<td class="col_1 sq_1"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_2 sq_1"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="9"/></td>
-					<td class="col_3 sq_1"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="8"/></td>
-					<td class="col_4 sq_2"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_5 sq_2"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_6 sq_2"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_7 sq_3"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_8 sq_3"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="6"/></td>
-					<td class="col_9 sq_3"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
+					<td class="col_1 sq_1"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_2 sq_1"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="9"/></td>
+					<td class="col_3 sq_1"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="8"/></td>
+					<td class="col_4 sq_2"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_5 sq_2"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_6 sq_2"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_7 sq_3"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_8 sq_3"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="6"/></td>
+					<td class="col_9 sq_3"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
 				</tr>
 				<tr id="row_4">
-					<td class="col_1 sq_4"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="8"/></td>
-					<td class="col_2 sq_4"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_3 sq_4"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_4 sq_5"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_5 sq_5"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="6"/></td>
-					<td class="col_6 sq_5"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_7 sq_6"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_8 sq_6"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_9 sq_6"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="3"/></td>
+					<td class="col_1 sq_4"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="8"/></td>
+					<td class="col_2 sq_4"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_3 sq_4"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_4 sq_5"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_5 sq_5"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="6"/></td>
+					<td class="col_6 sq_5"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_7 sq_6"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_8 sq_6"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_9 sq_6"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="3"/></td>
 				</tr>
 				<tr id="row_5">
-					<td class="col_1 sq_4"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="4"/></td>
-					<td class="col_2 sq_4"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_3 sq_4"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_4 sq_5"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="8"/></td>
-					<td class="col_5 sq_5"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_6 sq_5"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="3"/></td>
-					<td class="col_7 sq_6"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_8 sq_6"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_9 sq_6"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="1"/></td>
+					<td class="col_1 sq_4"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="4"/></td>
+					<td class="col_2 sq_4"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_3 sq_4"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_4 sq_5"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="8"/></td>
+					<td class="col_5 sq_5"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_6 sq_5"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="3"/></td>
+					<td class="col_7 sq_6"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_8 sq_6"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_9 sq_6"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="1"/></td>
 				</tr>
 				<tr id="row_6">
-					<td class="col_1 sq_4"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="7"/></td>
-					<td class="col_2 sq_4"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_3 sq_4"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_4 sq_5"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_5 sq_5"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="2"/></td>
-					<td class="col_6 sq_5"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_7 sq_6"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_8 sq_6"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_9 sq_6"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="6"/></td>
+					<td class="col_1 sq_4"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="7"/></td>
+					<td class="col_2 sq_4"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_3 sq_4"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_4 sq_5"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_5 sq_5"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="2"/></td>
+					<td class="col_6 sq_5"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_7 sq_6"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_8 sq_6"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_9 sq_6"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="6"/></td>
 				</tr>
 				<tr id="row_7">
-					<td class="col_1 sq_7"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_2 sq_7"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="6"/></td>
-					<td class="col_3 sq_7"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_4 sq_8"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_5 sq_8"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_6 sq_8"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_7 sq_9"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="2"/></td>
-					<td class="col_8 sq_9"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="8"/></td>
-					<td class="col_9 sq_9"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
+					<td class="col_1 sq_7"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_2 sq_7"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="6"/></td>
+					<td class="col_3 sq_7"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_4 sq_8"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_5 sq_8"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_6 sq_8"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_7 sq_9"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="2"/></td>
+					<td class="col_8 sq_9"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="8"/></td>
+					<td class="col_9 sq_9"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
 				</tr>
 				<tr id="row_8">
-					<td class="col_1 sq_7"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_2 sq_7"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_3 sq_7"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_4 sq_8"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="4"/></td>
-					<td class="col_5 sq_8"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="1"/></td>
-					<td class="col_6 sq_8"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="9"/></td>
-					<td class="col_7 sq_9"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_8 sq_9"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_9 sq_9"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="5"/></td>
+					<td class="col_1 sq_7"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_2 sq_7"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_3 sq_7"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_4 sq_8"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="4"/></td>
+					<td class="col_5 sq_8"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="1"/></td>
+					<td class="col_6 sq_8"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="9"/></td>
+					<td class="col_7 sq_9"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_8 sq_9"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_9 sq_9"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="5"/></td>
 				</tr>
 				<tr id="row_9">
-					<td class="col_1 sq_7"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_2 sq_7"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_3 sq_7"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_4 sq_8"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_5 sq_8"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="8"/></td>
-					<td class="col_6 sq_8"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_7 sq_9"><input type="number" min="1" max="9" step="1" class="sudoku_input"/></td>
-					<td class="col_8 sq_9"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="7"/></td>
-					<td class="col_9 sq_9"><input type="number" min="1" max="9" step="1" class="sudoku_input" readonly value="9"/></td>
+					<td class="col_1 sq_7"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_2 sq_7"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_3 sq_7"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_4 sq_8"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_5 sq_8"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="8"/></td>
+					<td class="col_6 sq_8"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_7 sq_9"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input"/></td>
+					<td class="col_8 sq_9"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="7"/></td>
+					<td class="col_9 sq_9"><input type="number" min="1" max="9" pattern="[0-9]*" class="sudoku_input" readonly value="9"/></td>
 				</tr>
 			</table>
 		</div>
@@ -219,10 +212,9 @@
 						if (!this.grid) {
 							throw new Error("No grid is set.");
 						} else {
-							var result = true, digits = ["1","2","3","4","5","6","7","8","9"];
-							for (var i = 0; i < 9; i++) {
-								var userGuess = this.grid[i].split(" ").sort();
-								if (!digits.equals(userGuess)) {
+							var result = true;
+							for (var i = 1; i <= 9; i++) {
+								if (!this.isRowValid(i)) {
 									result = false;
 									break;
 								}
@@ -231,22 +223,25 @@
 						}
 					};
 
+					Sudoku.prototype.isRowValid = function(rowNumber) {
+						if (!this.grid) {
+							throw new Error("No grid is set");
+						} else if (rowNumber < 1 || rowNumber > 9) {
+							throw new Error("Invalid row number.");
+						} else {
+							var digits = ["1","2","3","4","5","6","7","8","9"];
+							var userGuess = this.grid[rowNumber - 1].split(" ").sort();
+							return digits.equals(userGuess);
+						}
+					}
+
 					Sudoku.prototype.allColsAreValid = function() {
 						if (!this.grid) {
 							throw new Error("No grid is set.");
 						} else {
-							var result = true, digits = ["1","2","3","4","5","6","7","8","9"];
-							for (var i = 0; i < 9; i++) {
-								var userGuess = [this.grid[0].charAt(i * 2),
-												 this.grid[1].charAt(i * 2),
-												 this.grid[2].charAt(i * 2),
-												 this.grid[3].charAt(i * 2),
-												 this.grid[4].charAt(i * 2),
-												 this.grid[5].charAt(i * 2),
-												 this.grid[6].charAt(i * 2),
-												 this.grid[7].charAt(i * 2),
-												 this.grid[8].charAt(i * 2)].sort();
-								if (!digits.equals(userGuess)) {
+							var result = true;
+							for (var i = 1; i <= 9; i++) {
+								if (!this.isColValid(i)) {
 									result = false;
 									break;
 								}
@@ -254,28 +249,91 @@
 							return result;
 						}
 					};
+
+					Sudoku.prototype.isColValid = function(colNumber) {
+						if (!this.grid) {
+							throw new Error("No grid is set.");
+						} else if (colNumber < 1 || colNumber > 9) {
+							throw new Error("Invalid column number.");
+						} else {
+							colNumber--;
+							var digits = ["1","2","3","4","5","6","7","8","9"];
+							var userGuess = [this.grid[0].charAt(colNumber * 2),
+											 this.grid[1].charAt(colNumber * 2),
+											 this.grid[2].charAt(colNumber * 2),
+											 this.grid[3].charAt(colNumber * 2),
+											 this.grid[4].charAt(colNumber * 2),
+											 this.grid[5].charAt(colNumber * 2),
+											 this.grid[6].charAt(colNumber * 2),
+											 this.grid[7].charAt(colNumber * 2),
+											 this.grid[8].charAt(colNumber * 2)].sort();
+							return digits.equals(userGuess);
+						}
+					}
 
 					Sudoku.prototype.allSquaresAreValid = function() {
 						if (!this.grid) {
 							throw new Error("No grid is set.");
 						} else {
 							var result = true, digits = ["1","2","3","4","5","6","7","8","9"], length = 6;
-							for (var i = 0; i < 9; i += 3) {
-								for (var j = 0; j < 18; j += 6) {
-									if (j === 12) { length = 5; }
-									var userGuess = this.grid[i].substr(j, length).trim().split(" ")
-											.concat(this.grid[i + 1].substr(j, length).trim().split(" "))
-											.concat(this.grid[i + 2].substr(j, length).trim().split(" ")).sort();
-									if (!digits.equals(userGuess)) {
-										result = false;
-										break;
-									}
+							for (var i = 1; i <= 9; i++) {
+								if (!this.isSquareValid(i)) { 
+									result = false;
+									break;
 								}
-								if (!result) { break; }
 							}
 							return result;
 						}
 					};
+
+					Sudoku.prototype.isSquareValid = function(sqNumber) {
+						if (!this.grid) {
+							throw new Error("No grid is set.");
+						} else {
+							var i = 0, j = 0, length = 6;
+							switch(sqNumber) {
+								case 1:
+									break;
+								case 2:
+									j = 6;
+									break;
+								case 3:
+									j = 12;
+									length = 5;
+									break;
+								case 4:
+									i = 3;
+									break;
+								case 5:
+									i = 3;
+									j = 6;
+									break;
+								case 6:
+									i = 3;
+									j = 12;
+									length = 5;
+									break;
+								case 7:
+									i = 6;
+									break;
+								case 8:
+									i = 6;
+									j = 6;
+									break;
+								case 9:
+									i = 6;
+									j = 12;
+									length = 5;
+								default:
+									throw new Error("Invalid square number.");
+							}
+							var digits = ["1","2","3","4","5","6","7","8","9"];
+							var userGuess = this.grid[i].substr(j, length).trim().split(" ")
+									.concat(this.grid[i + 1].substr(j, length).trim().split(" "))
+									.concat(this.grid[i + 2].substr(j, length).trim().split(" ")).sort();
+							return digits.equals(userGuess);
+						}
+					}
 
 					Array.prototype.equals = function(b) {
 						if (this === b) { return true; }
@@ -291,17 +349,42 @@
 
 					function handleSudokuUserInput(event) {
 						var $input = $(event.target), input = $input.val();
+						var colNum = getNumberFromClassOrID("col", $input);
+						var sqNum = getNumberFromClassOrID("sq", $input);
 
 						//check if input is valid
 						if (input.length === 1 && /[1-9]/.test(input)) {
+							var game = new Sudoku($inputs);
+
+							if (game.isRowValid(getNumberFromClassOrID("row", $input))) { 
+								$input.parent().parent().addClass("correct_row");
+							} else {
+								$input.parent().parent().removeClass("correct_row");
+							}
+
+							if (game.isColValid(colNum)) { 
+								$(".col_" + colNum.toString()).addClass("correct_col");
+							} else {
+								$(".col_" + colNum.toString()).removeClass("correct_col");
+							}
+
+							if (game.isSquareValid(sqNum)) { 
+								$(".sq_" + sqNum.toString()).addClass("correct_sq");
+							} else {
+								$(".sq_" + sqNum.toString()).removeClass("correct_sq");
+							}
+
 							//check if user won game
 							//first check if all inputs are filled in, then use isSolved method.
-							if (allInputsAreFilled($inputs) && (new Sudoku($inputs)).isSolved()) {
-								$('#board').off('input', handleSudokuUserInput);
+							if (allInputsAreFilled($inputs) && game.isSolved()) {
+								$('#board').off('change', handleSudokuUserInput);
 								alert("You won!");
 							}
 						} else if (!$input[0].valueAsNumber || input.length > 1) {
-							//input is not valid, show error message and clear input
+							//input is not valid
+							$input.parent().parent().removeClass("correct_row");
+							$(".col_" + colNum.toString()).removeClass("correct_col");
+							$(".sq_" + sqNum.toString()).removeClass("correct_sq");
 							$input.val("");
 						}
 
@@ -311,9 +394,22 @@
 							});
 							return true;
 						}
+
+						function getNumberFromClassOrID(labelID, $input) {
+							//returns the number attached at the end of the row id or sq or col classes
+							var label = null;
+							if (labelID === "row") {
+								label = $input.parent().parent().attr("id");
+							} else if(labelID === "col"){
+								label = /col_\d/.exec($input.parent()[0].className)[0];
+							} else {
+								label = /sq_\d/.exec($input.parent()[0].className)[0];
+							}
+							return parseInt(label.charAt(label.length - 1));
+						}
 					}
 
-					$('#board').on('input', handleSudokuUserInput);
+					$('#board').on('change', handleSudokuUserInput);
 				});
 			})(window);
 		</script>
