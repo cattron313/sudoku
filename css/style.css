@@ -7,6 +7,12 @@
 	background: #FFEBCD;
 }
 
+.duplicate_row > .sudoku_input,
+.duplicate_col > .sudoku_input,
+.duplicate_sq > .sudoku_input {
+	color: red !important; /* need to override the attribute readonly selector */
+}
+
 .hidden {
 	display: none;
 }
@@ -52,7 +58,7 @@ table {
 	border: 15px groove grey;
 }
 
-#row_4 > *, #row_7 > * {
+.row_4, .row_7{
 	border-top: 15px groove grey;
 }
 

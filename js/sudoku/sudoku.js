@@ -40,88 +40,78 @@
 		};
 
 		Sudoku.prototype.isSolved = function() {
-			return this.allRowsAreValid() && this.allColsAreValid() && this.allSquaresAreValid();
-		};
-
-		Sudoku.prototype.allRowsAreValid = function() {
-			if (!this.grid) {
-				throw new Error("No grid is set.");
-			} else {
-				var result = true;
+			var array = ["row", "col", "sq"];
+			var result = true;
+			for (var j = 0; j < array.length; j++) {
 				for (var i = 1; i <= 9; i++) {
-					if (!this.isRowValid(i)) {
+					if (!this.isValid(i, array[j])) {
 						result = false;
 						break;
 					}
 				}
-				return result;
+				if (!result) { break; }
 			}
+			return result;
 		};
 
-		Sudoku.prototype.isRowValid = function(rowNumber) {
+		Sudoku.prototype.getRowColOrSquare = function(number, type) {
+			switch(type) {
+				case "row":
+					return this.getRow(number);
+				case "col":
+					return this.getCol(number);
+				case "sq":
+					return this.getSquare(number);
+				default:
+					throw new Error("Type must be row, col, or sq.");
+			}
+		}
+
+		Sudoku.prototype.isValid = function(number, type) {
+			var digits = ["1","2","3","4","5","6","7","8","9"];
+			var userGuess = this.getRowColOrSquare(number, type);
+			return digits.equals(userGuess.sort());
+		};
+
+		Sudoku.prototype.duplicateExists = function(value, number, type) {
+			var userGuess = this.getRowColOrSquare(number, type), count = 0;
+			for(var i = 0; i < userGuess.length; i++) {
+				if (userGuess[i] === value) { count++; }
+				if (count > 1) { break; }
+			}
+			return count > 1;
+		};
+
+		Sudoku.prototype.getRow = function(rowNumber) {
 			if (!this.grid) {
-				throw new Error("No grid is set");
+				throw new Error("No grid is set.");
 			} else if (rowNumber < 1 || rowNumber > 9) {
 				throw new Error("Invalid row number.");
 			} else {
-				var digits = ["1","2","3","4","5","6","7","8","9"];
-				var userGuess = this.grid[rowNumber - 1].split(" ").sort();
-				return digits.equals(userGuess);
-			}
-		}
-
-		Sudoku.prototype.allColsAreValid = function() {
-			if (!this.grid) {
-				throw new Error("No grid is set.");
-			} else {
-				var result = true;
-				for (var i = 1; i <= 9; i++) {
-					if (!this.isColValid(i)) {
-						result = false;
-						break;
-					}
-				}
-				return result;
+				return this.grid[rowNumber - 1].split(" ");
 			}
 		};
 
-		Sudoku.prototype.isColValid = function(colNumber) {
+		Sudoku.prototype.getCol = function(colNumber) {
 			if (!this.grid) {
 				throw new Error("No grid is set.");
 			} else if (colNumber < 1 || colNumber > 9) {
-				throw new Error("Invalid column number.");
+				throw new Error("Invalid col number.");
 			} else {
 				colNumber--;
-				var digits = ["1","2","3","4","5","6","7","8","9"];
-				var userGuess = [this.grid[0].charAt(colNumber * 2),
-								 this.grid[1].charAt(colNumber * 2),
-								 this.grid[2].charAt(colNumber * 2),
-								 this.grid[3].charAt(colNumber * 2),
-								 this.grid[4].charAt(colNumber * 2),
-								 this.grid[5].charAt(colNumber * 2),
-								 this.grid[6].charAt(colNumber * 2),
-								 this.grid[7].charAt(colNumber * 2),
-								 this.grid[8].charAt(colNumber * 2)].sort();
-				return digits.equals(userGuess);
-			}
-		}
-
-		Sudoku.prototype.allSquaresAreValid = function() {
-			if (!this.grid) {
-				throw new Error("No grid is set.");
-			} else {
-				var result = true;
-				for (var i = 1; i <= 9; i++) {
-					if (!this.isSquareValid(i)) { 
-						result = false;
-						break;
-					}
-				}
-				return result;
+				return [this.grid[0].charAt(colNumber * 2),
+						this.grid[1].charAt(colNumber * 2),
+						this.grid[2].charAt(colNumber * 2),
+						this.grid[3].charAt(colNumber * 2),
+						this.grid[4].charAt(colNumber * 2),
+						this.grid[5].charAt(colNumber * 2),
+						this.grid[6].charAt(colNumber * 2),
+						this.grid[7].charAt(colNumber * 2),
+						this.grid[8].charAt(colNumber * 2)];
 			}
 		};
 
-		Sudoku.prototype.isSquareValid = function(sqNumber) {
+		Sudoku.prototype.getSquare = function(sqNumber) {
 			if (!this.grid) {
 				throw new Error("No grid is set.");
 			} else {
@@ -163,13 +153,11 @@
 					default:
 						throw new Error("Invalid square number.");
 				}
-				var digits = ["1","2","3","4","5","6","7","8","9"];
-				var userGuess = this.grid[i].substr(j, length).trim().split(" ")
+				return this.grid[i].substr(j, length).trim().split(" ")
 						.concat(this.grid[i + 1].substr(j, length).trim().split(" "))
-						.concat(this.grid[i + 2].substr(j, length).trim().split(" ")).sort();
-				return digits.equals(userGuess);
+						.concat(this.grid[i + 2].substr(j, length).trim().split(" "));
 			}
-		}
+		};
 
 		Array.prototype.equals = function(b) {
 			if (this === b) { return true; }
@@ -179,36 +167,24 @@
 				if (this[i] !== b[i]) { return false; }
 			}
 			return true;
-		}
+		};
 
 		var $inputs = $(".sudoku_input");
 
 		function handleSudokuUserInput(event) {
 			var $input = $(event.target), input = $input.val();
-			var colNum = getNumberFromClassOrID("col", $input);
-			var sqNum = getNumberFromClassOrID("sq", $input);
+			var rowNum = getNumberFromClass("row", $input);
+			var colNum = getNumberFromClass("col", $input);
+			var sqNum = getNumberFromClass("sq", $input);
+			var $row = $(".row_" + rowNum.toString()),
+				$col = $(".col_" + colNum.toString()),
+				$sq = $(".sq_" + sqNum.toString());
 
 			//check if input is valid
 			if (input.length === 1 && /[1-9]/.test(input)) {
 				var game = new Sudoku($inputs);
 
-				if (game.isRowValid(getNumberFromClassOrID("row", $input))) { 
-					$input.parent().parent().addClass("valid_row");
-				} else {
-					$input.parent().parent().removeClass("valid_row");
-				}
-
-				if (game.isColValid(colNum)) { 
-					$(".col_" + colNum.toString()).addClass("valid_col");
-				} else {
-					$(".col_" + colNum.toString()).removeClass("valid_col");
-				}
-
-				if (game.isSquareValid(sqNum)) { 
-					$(".sq_" + sqNum.toString()).addClass("valid_sq");
-				} else {
-					$(".sq_" + sqNum.toString()).removeClass("valid_sq");
-				}
+				updateUIBasedOnInput(game);
 
 				//check if user won game
 				//first check if all inputs are filled in, then use isSolved method.
@@ -216,11 +192,11 @@
 					$('#board').off('keyup', handleSudokuUserInput);
 					alert("You won!");
 				}
-			} else if (!$input[0].valueAsNumber || input.length > 1) {
+			} else if (!$input[0].valueAsNumber || input.length !== 1) {
 				//input is not valid, remove highlighting classes and clear input
-				$input.parent().parent().removeClass("valid_row");
-				$(".col_" + colNum.toString()).removeClass("valid_col");
-				$(".sq_" + sqNum.toString()).removeClass("valid_sq");
+				$row.removeClass("valid_row duplicate_row");
+				$col.removeClass("valid_col duplicate_col");
+				$sq.removeClass("valid_sq duplicate_sq");
 				$input.val("");
 			}
 
@@ -231,17 +207,50 @@
 				return true;
 			}
 
-			function getNumberFromClassOrID(labelID, $input) {
+			function getNumberFromClass(labelID, $input) {
 				//returns the number attached at the end of the row id or sq or col classes
 				var label = null;
 				if (labelID === "row") {
-					label = $input.parent().parent().attr("id");
+					label = /row_\d/.exec($input.parent()[0].className)[0];
 				} else if(labelID === "col"){
 					label = /col_\d/.exec($input.parent()[0].className)[0];
 				} else {
 					label = /sq_\d/.exec($input.parent()[0].className)[0];
 				}
 				return parseInt(label.charAt(label.length - 1));
+			}
+
+			function updateUIBasedOnInput(game){
+				var array = [{ name: "row", number: rowNum, collection: $row },
+							 { name: "col", number: colNum, collection: $col },
+							 { name: "sq", number: sqNum, collection: $sq }];
+				for(var i = 0; i < 3; i++) {
+					highlightValidRowsColsOrSquares();
+					markDuplicateNumbers();
+				}
+
+				function highlightValidRowsColsOrSquares() {
+					//highlight row, col, or square if valid numbers are entered.
+					//Valid means numbers 1-9 have all been entered once.
+					if (game.isValid(array[i].number, array[i].name)) { 
+						array[i]["collection"].addClass("valid_" + array[i].name);
+					} else {
+						array[i]["collection"].removeClass("valid_" + array[i].name);
+					}
+				}
+
+				function markDuplicateNumbers() {
+					//if number is repeated in row, col, or square, mark it as a duplicate.
+					if (game.duplicateExists(input, array[i].number, array[i].name)) {
+						array[i]["collection"].each(function() {
+							if ($(this).children().val() === input) {
+								$(this).addClass("duplicate_" + array[i]["name"]);
+							} else {
+								$(this).removeClass("duplicate_" + array[i]["name"]);
+							}
+						});		
+					}	
+				}
 			}
 		}
 
@@ -253,7 +262,6 @@
 				event.preventDefault();
 			});
 		});
-
 		$('#sudoku_input_wrap').on('blur', '.sudoku_input', function (event) {
 			$(this).off('mousewheel.disableScroll');
 		});
