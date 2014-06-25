@@ -16,8 +16,13 @@
 				//Each string as 9 numbers separated by spaces.
 				var result = [];
 				$inputs.each(function(i){
-					if (i % 9 === 0) { result.push(""); } 
-					result[result.length - 1] += (i % 9 === 8) ? this.value : this.value + " "; 
+					if (i % 9 === 0) { result.push(""); }
+					if (this.value === "") {
+						//fill empty inputs with 0
+						result[result.length - 1] += (i % 9 === 8) ? "0" : "0 ";
+					} else {
+						result[result.length - 1] += (i % 9 === 8) ? this.value : this.value + " ";
+					} 
 				});
 				return result;
 			}
