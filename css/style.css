@@ -1,0 +1,61 @@
+#main {
+	font-family: "Maven Pro", Helvetica, Arial, sans-serif;
+}
+
+/* highlight correctly filled-in squares, rows, and columns */
+.valid_row, .valid_col, .valid_sq {
+	background: #FFEBCD;
+}
+
+.hidden {
+	display: none;
+}
+
+#title {
+	margin-top: 50px;
+	font-size: 3rem;
+	text-align: center;
+	font-weight: 700;
+}
+
+#board {
+	margin: 0 auto;
+}
+
+.sudoku_input {
+	border: none;
+	text-align: center;
+	width: 100px;
+	height: 80px;
+	font-family: inherit;
+	font-size: 2rem;
+	font-weight: 700;
+	-moz-appearance: textfield;
+	color: #4682B4;
+
+}
+
+/* prevent incrementing buttons from displaying */
+.sudoku_input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+}
+
+.sudoku_input[readonly] {
+	color: black;
+}
+
+td {
+	border: 5px groove gainsboro;
+}
+
+table {
+	border: 15px groove grey;
+}
+
+#row_4 > *, #row_7 > * {
+	border-top: 15px groove grey;
+}
+
+.col_4, .col_7 {
+	border-left: 15px groove grey;
+}
