@@ -1,0 +1,46 @@
+doctype html
+html(lang="en")
+  head
+    title Sudoku Puzzle
+    link(rel="stylesheet", type="text/css", href="css/html5reset-1.6.1.css")
+    link(href='http://fonts.googleapis.com/css?family=Maven+Pro:400,700', rel='stylesheet', type='text/css')
+    link(rel="stylesheet", type="text/css", href="css/style.css")
+  body
+    #main
+      h1#title
+        a#how_to_play(href="http://www.sudoku.name/rules/en", target="_blank") Sudoku
+      form#sudoku_input_wrap
+        table#board
+          each row in [1, 2, 3, 4, 5, 6, 7, 8, 9]
+            tr
+              each col in [1, 2, 3, 4, 5, 6, 7, 8, 9]
+                - var sq = "";
+                if row >= 1 && row <= 3 && col >= 1 && col <= 3
+                  - sq = "1";
+                else if row >= 1 && row <= 3 && col >= 4 && col <= 6
+                  - sq = "2"
+                else if row >= 1 && row <= 3 && col >= 7 && col <= 9
+                  - sq = "3"
+                else if row >= 4 && row <= 6 && col >= 1 && col <= 3
+                  - sq = "4"
+                else if row >= 4 && row <= 6 && col >= 4 && col <= 6
+                  - sq = "5"
+                else if row >= 4 && row <= 6 && col >= 7 && col <= 9
+                  - sq = "6"
+                else if row >= 7 && row <= 9 && col >= 1 && col <= 3
+                  - sq = "7"
+                else if row >= 7 && row <= 9 && col >= 4 && col <= 6
+                  - sq = "8"
+                else
+                  - sq = "9"
+                - var classes = ["row_" + row, "col_" + col, "sq_" + sq];
+                td(class = classes)
+                  input(type="number", pattern="[0-9]*", min="1", max="9", class="sudoku_input")
+    //Using jQuery 2.1.1 because only supporting latest version of FF, Chrome, and IE 10
+    script(src="js/jquery-2.1.1.min.js")
+    script(src="js/sudoku/sudoku.js")
+    //-
+      Tests during development
+      #qunit
+      script(src="js/qunit-1.14.0.js")
+      script(src="js/sudoku/sudoku_tests.js")

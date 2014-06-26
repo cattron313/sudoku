@@ -1,124 +1,282 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Sudoku Game</title>
-		<link rel="stylesheet" type="text/css" href="css/html5reset-1.6.1.css"/>
-		<link href='http://fonts.googleapis.com/css?family=Maven+Pro:400,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="css/style.css"/>
-	</head>
-	<body>
-		<div id="main">
-			<h1 id="title"><a id="how_to_play" href="http://www.sudoku.name/rules/en" target="_blank">Sudoku</a></h1>
-			<form id="sudoku_input_wrap">
-				<table id="board">
-					<tr>
-						<td class="row_1 col_1 sq_1"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="5"/></td>
-						<td class="row_1 col_2 sq_1"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="3"/></td>
-						<td class="row_1 col_3 sq_1"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_1 col_4 sq_2"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_1 col_5 sq_2"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="7"/></td>
-						<td class="row_1 col_6 sq_2"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_1 col_7 sq_3"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_1 col_8 sq_3"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_1 col_9 sq_3"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-					</tr>
-					<tr>
-						<td class="row_2 col_1 sq_1"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="6"/></td>
-						<td class="row_2 col_2 sq_1"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_2 col_3 sq_1"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_2 col_4 sq_2"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="1"/></td>
-						<td class="row_2 col_5 sq_2"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="9"/></td>
-						<td class="row_2 col_6 sq_2"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="5"/></td>
-						<td class="row_2 col_7 sq_3"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_2 col_8 sq_3"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_2 col_9 sq_3"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-					</tr>
-					<tr>
-						<td class="row_3 col_1 sq_1"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_3 col_2 sq_1"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="9"/></td>
-						<td class="row_3 col_3 sq_1"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="8"/></td>
-						<td class="row_3 col_4 sq_2"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_3 col_5 sq_2"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_3 col_6 sq_2"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_3 col_7 sq_3"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_3 col_8 sq_3"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="6"/></td>
-						<td class="row_3 col_9 sq_3"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-					</tr>
-					<tr>
-						<td class="row_4 col_1 sq_4"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="8"/></td>
-						<td class="row_4 col_2 sq_4"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_4 col_3 sq_4"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_4 col_4 sq_5"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_4 col_5 sq_5"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="6"/></td>
-						<td class="row_4 col_6 sq_5"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_4 col_7 sq_6"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_4 col_8 sq_6"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_4 col_9 sq_6"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="3"/></td>
-					</tr>
-					<tr>
-						<td class="row_5 col_1 sq_4"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="4"/></td>
-						<td class="row_5 col_2 sq_4"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_5 col_3 sq_4"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_5 col_4 sq_5"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="8"/></td>
-						<td class="row_5 col_5 sq_5"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_5 col_6 sq_5"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="3"/></td>
-						<td class="row_5 col_7 sq_6"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_5 col_8 sq_6"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_5 col_9 sq_6"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="1"/></td>
-					</tr>
-					<tr>
-						<td class="row_6 col_1 sq_4"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="7"/></td>
-						<td class="row_6 col_2 sq_4"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_6 col_3 sq_4"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_6 col_4 sq_5"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_6 col_5 sq_5"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="2"/></td>
-						<td class="row_6 col_6 sq_5"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_6 col_7 sq_6"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_6 col_8 sq_6"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_6 col_9 sq_6"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="6"/></td>
-					</tr>
-					<tr>
-						<td class="row_7 col_1 sq_7"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_7 col_2 sq_7"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="6"/></td>
-						<td class="row_7 col_3 sq_7"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_7 col_4 sq_8"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_7 col_5 sq_8"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_7 col_6 sq_8"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_7 col_7 sq_9"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="2"/></td>
-						<td class="row_7 col_8 sq_9"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="8"/></td>
-						<td class="row_7 col_9 sq_9"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-					</tr>
-					<tr>
-						<td class="row_8 col_1 sq_7"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_8 col_2 sq_7"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_8 col_3 sq_7"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_8 col_4 sq_8"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="4"/></td>
-						<td class="row_8 col_5 sq_8"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="1"/></td>
-						<td class="row_8 col_6 sq_8"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="9"/></td>
-						<td class="row_8 col_7 sq_9"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_8 col_8 sq_9"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_8 col_9 sq_9"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="5"/></td>
-					</tr>
-					<tr>
-						<td class="row_9 col_1 sq_7"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_9 col_2 sq_7"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_9 col_3 sq_7"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_9 col_4 sq_8"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_9 col_5 sq_8"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="8"/></td>
-						<td class="row_9 col_6 sq_8"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_9 col_7 sq_9"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input"/></td>
-						<td class="row_9 col_8 sq_9"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="7"/></td>
-						<td class="row_9 col_9 sq_9"><input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input" readonly value="9"/></td>
-					</tr>
-				</table>
-			</form>
-		</div>
-		<!-- Using jQuery 2.1.1 because only supporting latest version of FF, Chrome, and IE 10 -->
-		<script src="js/jquery-2.1.1.min.js"></script>
-		<script src="js/sudoku/sudoku.js"></script>
-		<!--Tests during development
-		<div id="qunit"></div>
-		<script src="js/qunit-1.14.0.js"></script>
-		<script src="js/sudoku/sudoku_tests.js"></script>-->
-	</body>
+<html lang="en">
+  <head>
+    <title>Sudoku Puzzle</title>
+    <link rel="stylesheet" type="text/css" href="css/html5reset-1.6.1.css">
+    <link href="http://fonts.googleapis.com/css?family=Maven+Pro:400,700" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+    <div id="main">
+      <h1 id="title"><a id="how_to_play" href="http://www.sudoku.name/rules/en" target="_blank">Sudoku</a></h1>
+      <form id="sudoku_input_wrap">
+        <table id="board">
+          <tr>
+            <td class="row_1 col_1 sq_1">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_1 col_2 sq_1">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_1 col_3 sq_1">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_1 col_4 sq_2">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_1 col_5 sq_2">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_1 col_6 sq_2">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_1 col_7 sq_3">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_1 col_8 sq_3">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_1 col_9 sq_3">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+          </tr>
+          <tr>
+            <td class="row_2 col_1 sq_1">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_2 col_2 sq_1">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_2 col_3 sq_1">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_2 col_4 sq_2">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_2 col_5 sq_2">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_2 col_6 sq_2">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_2 col_7 sq_3">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_2 col_8 sq_3">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_2 col_9 sq_3">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+          </tr>
+          <tr>
+            <td class="row_3 col_1 sq_1">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_3 col_2 sq_1">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_3 col_3 sq_1">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_3 col_4 sq_2">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_3 col_5 sq_2">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_3 col_6 sq_2">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_3 col_7 sq_3">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_3 col_8 sq_3">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_3 col_9 sq_3">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+          </tr>
+          <tr>
+            <td class="row_4 col_1 sq_4">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_4 col_2 sq_4">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_4 col_3 sq_4">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_4 col_4 sq_5">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_4 col_5 sq_5">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_4 col_6 sq_5">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_4 col_7 sq_6">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_4 col_8 sq_6">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_4 col_9 sq_6">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+          </tr>
+          <tr>
+            <td class="row_5 col_1 sq_4">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_5 col_2 sq_4">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_5 col_3 sq_4">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_5 col_4 sq_5">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_5 col_5 sq_5">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_5 col_6 sq_5">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_5 col_7 sq_6">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_5 col_8 sq_6">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_5 col_9 sq_6">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+          </tr>
+          <tr>
+            <td class="row_6 col_1 sq_4">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_6 col_2 sq_4">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_6 col_3 sq_4">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_6 col_4 sq_5">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_6 col_5 sq_5">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_6 col_6 sq_5">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_6 col_7 sq_6">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_6 col_8 sq_6">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_6 col_9 sq_6">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+          </tr>
+          <tr>
+            <td class="row_7 col_1 sq_7">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_7 col_2 sq_7">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_7 col_3 sq_7">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_7 col_4 sq_8">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_7 col_5 sq_8">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_7 col_6 sq_8">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_7 col_7 sq_9">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_7 col_8 sq_9">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_7 col_9 sq_9">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+          </tr>
+          <tr>
+            <td class="row_8 col_1 sq_7">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_8 col_2 sq_7">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_8 col_3 sq_7">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_8 col_4 sq_8">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_8 col_5 sq_8">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_8 col_6 sq_8">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_8 col_7 sq_9">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_8 col_8 sq_9">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_8 col_9 sq_9">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+          </tr>
+          <tr>
+            <td class="row_9 col_1 sq_7">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_9 col_2 sq_7">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_9 col_3 sq_7">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_9 col_4 sq_8">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_9 col_5 sq_8">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_9 col_6 sq_8">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_9 col_7 sq_9">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_9 col_8 sq_9">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+            <td class="row_9 col_9 sq_9">
+              <input type="number" pattern="[0-9]*" min="1" max="9" class="sudoku_input">
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+    <!--Using jQuery 2.1.1 because only supporting latest version of FF, Chrome, and IE 10-->
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/sudoku/sudoku.js"></script>
+  </body>
 </html>
