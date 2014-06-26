@@ -1,0 +1,165 @@
+// START: My personal reset changes
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-size: 16px;
+}
+
+//END
+
+$bg_color_valid_collection: rgba(173, 216, 230, 0.5);
+$bg_color_duplicate_digit: rgba(240, 128, 128, 0.5);
+
+$baseline_font_size: 1rem;
+
+$color_board_text: black;
+$color_user_input: mediumblue;
+
+$input_sudoku_width: 100px;
+$input_sudoku_height: $input_sudoku_width * .8;
+
+$table_border_width: 15px;
+$table_border_outer_color: grey;
+$table_border_inner_color: gainsboro;
+
+//desktop
+$table_border: $table_border_width groove $table_border_outer_color;
+$td_border: $table_border_width/3 groove $table_border_inner_color;
+
+//tablet
+$max_tablet_width: 1024px;
+$tablet_table_border:($table_border_width * 2 / 3) groove $table_border_outer_color;
+$tablet_td_border:$table_border_width / 4 groove $table_border_inner_color;
+
+//phone
+$max_phone_width: 480px;
+$phone_table_border: $table_border_width / 2 groove $table_border_outer_color;
+$phone_td_border: $table_border_width / 5 groove $table_border_inner_color;
+
+#main {
+	font-family: "Maven Pro", Helvetica, Arial, sans-serif;
+}
+
+/* highlight correctly filled-in squares, rows, and columns */
+.valid_row, .valid_col, .valid_sq {
+	background: $bg_color_valid_collection;
+}
+
+/* highlight rows, cols, and squares that contain duplicated digits */
+.duplicate_row, .duplicate_col, .duplicate_sq {
+	background: $bg_color_duplicate_digit;
+}
+
+.hidden {
+	display: none;
+}
+
+#title {
+	margin: 50px 0 10px;
+	font-size: 3 * $baseline_font_size;
+	text-align: center;
+	font-weight: 700;
+}
+
+#how_to_play {
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+/*START: desktop board styling*/
+#board {
+	margin: 0 auto;
+	border: $table_border;
+}
+
+td {
+	border: $td_border;
+}
+
+.row_4, .row_7{
+	border-top: $table_border
+}
+
+.col_4, .col_7 {
+	border-left: $table_border;
+}
+
+.sudoku_input {
+	border: none;
+	text-align: center;
+	width: $input_sudoku_width;
+	height: $input_sudoku_height;
+	font-family: inherit;
+	font-size: 2 * $baseline_font_size;
+	-moz-appearance: textfield;
+	color: $color_user_input;
+	font-weight: 700;
+
+	/* prevent incrementing buttons from displaying */
+	&::-webkit-inner-spin-button {
+		-webkit-appearance: none;
+	}
+
+	&[readonly] {
+		color: $color_board_text;
+	}
+}
+/*END: desktop board styling*/
+
+/*START: tablet board styling*/
+@media screen and (min-width: $max_phone_width + 1) and (max-width: $max_tablet_width) {
+	#board {
+		border: $tablet_table_border;
+	}
+
+	td {
+		border: $tablet_td_border;
+	}
+
+	.row_4, .row_7{
+		border-top: $tablet_table_border;
+	}
+
+	.col_4, .col_7 {
+		border-left: $tablet_table_border;
+	}
+
+	.sudoku_input {
+		width: $input_sudoku_width * .6;
+		height: $input_sudoku_height * .6;
+		font-size: 1.75 * $baseline_font_size;
+	}
+}
+/*END: tablet board styling*/
+
+/*START: phone board styling*/
+@media screen and (max-width: $max_phone_width) {
+	#board {
+		border: $phone_table_border;
+	}
+
+	td {
+		border: $phone_td_border;
+	}
+
+	.row_4, .row_7{
+		border-top: $phone_table_border;
+	}
+
+	.col_4, .col_7 {
+		border-left: $phone_table_border;
+	}
+
+	.sudoku_input {
+		width: $input_sudoku_width * .39;
+		height: $input_sudoku_height * .39;
+		font-size: 1.5 * $baseline_font_size;
+	}
+}
+/*END: phone board styling */
