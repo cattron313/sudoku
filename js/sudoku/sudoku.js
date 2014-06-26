@@ -73,13 +73,20 @@
 			return digits.equals(userGuess.sort());
 		};
 
-		Sudoku.prototype.duplicateExists = function(value, number, type) {
-			var userGuess = this.getRowColOrSquare(number, type), count = 0;
+		Sudoku.prototype.findDuplicates = function(number, type) {
+			 //if we count two of a digit then it's a duplicate
+			var userGuess = this.getRowColOrSquare(number, type), duplicates = [], elems = {};
 			for(var i = 0; i < userGuess.length; i++) {
-				if (userGuess[i] === value) { count++; }
-				if (count > 1) { break; }
+				if (userGuess[i] !== "0") { //ignore 0
+					if (elems[userGuess[i]]) {
+						elems[userGuess[i]]++;
+						if (elems[userGuess[i]] === 2) { duplicates.push(userGuess[i]); }
+					} else {
+						elems[userGuess[i]] = 1;
+					}
+				}
 			}
-			return count > 1;
+			return duplicates;
 		};
 
 		Sudoku.prototype.getRow = function(rowNumber) {
@@ -179,12 +186,13 @@
 			var $row = $(".row_" + rowNum.toString()),
 				$col = $(".col_" + colNum.toString()),
 				$sq = $(".sq_" + sqNum.toString());
+			var game = new Sudoku($inputs);
+
+
+			updateUI(game, rowNum, colNum, sqNum, $row, $col, $sq);
 
 			//check if input is valid
 			if (input.length === 1 && /[1-9]/.test(input)) {
-				var game = new Sudoku($inputs);
-
-				updateUIBasedOnInput(game);
 
 				//check if user won game
 				//first check if all inputs are filled in, then use isSolved method.
@@ -193,10 +201,7 @@
 					alert("You won!");
 				}
 			} else if (!$input[0].valueAsNumber || input.length !== 1) {
-				//input is not valid, remove highlighting classes and clear input
-				$row.removeClass("valid_row duplicate_row");
-				$col.removeClass("valid_col duplicate_col");
-				$sq.removeClass("valid_sq duplicate_sq");
+				//input is not valid clear input
 				$input.val("");
 			}
 
@@ -220,16 +225,21 @@
 				return parseInt(label.charAt(label.length - 1));
 			}
 
-			function updateUIBasedOnInput(game){
+			function updateUI(game, rowNum, colNum, sqNum, $row, $col, $sq){
 				var array = [{ name: "row", number: rowNum, collection: $row },
 							 { name: "col", number: colNum, collection: $col },
 							 { name: "sq", number: sqNum, collection: $sq }];
+
+				//opting to clear all duplicates and finding them again on every input
+				//rather than keeping track of whether a duplicate changes
+				$inputs.parent().removeClass("duplicate_row duplicate_col duplicate_sq");
+
 				for(var i = 0; i < 3; i++) {
-					highlightValidRowsColsOrSquares();
-					markDuplicateNumbers();
+					highlightValidRowsColsOrSquares(array, i);
+					markDuplicateNumbers(array, i);
 				}
 
-				function highlightValidRowsColsOrSquares() {
+				function highlightValidRowsColsOrSquares(array, i) {
 					//highlight row, col, or square if valid numbers are entered.
 					//Valid means numbers 1-9 have all been entered once.
 					if (game.isValid(array[i].number, array[i].name)) { 
@@ -239,17 +249,20 @@
 					}
 				}
 
-				function markDuplicateNumbers() {
+				function markDuplicateNumbers(array, i) {
 					//if number is repeated in row, col, or square, mark it as a duplicate.
-					if (game.duplicateExists(input, array[i].number, array[i].name)) {
-						array[i]["collection"].each(function() {
-							if ($(this).children().val() === input) {
-								$(this).addClass("duplicate_" + array[i]["name"]);
-							} else {
-								$(this).removeClass("duplicate_" + array[i]["name"]);
-							}
-						});		
-					}	
+					for(var number = 1; number <= 9; number++) {
+						var duplicates = game.findDuplicates(number, array[i].name);
+						if (duplicates.length) {
+							$("." + array[i].name + "_" + number.toString()).each(function() {
+								for(var k = 0; k < duplicates.length; k++) {
+									if($(this).children().val() === duplicates[k]) {
+										$(this).addClass("duplicate_" + array[i]["name"]);
+									}
+								}
+							});		
+						}	
+					}
 				}
 			}
 		}

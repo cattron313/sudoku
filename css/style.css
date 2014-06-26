@@ -4,13 +4,11 @@
 
 /* highlight correctly filled-in squares, rows, and columns */
 .valid_row, .valid_col, .valid_sq {
-	background: #FFEBCD;
+	background: rgba(173, 216, 230, 0.5);
 }
 
-.duplicate_row > .sudoku_input,
-.duplicate_col > .sudoku_input,
-.duplicate_sq > .sudoku_input {
-	color: red !important; /* need to override the attribute readonly selector */
+.duplicate_row, .duplicate_col, .duplicate_sq {
+	background: rgba(240, 128, 128, 0.5);
 }
 
 .hidden {
@@ -35,9 +33,9 @@
 	height: 80px;
 	font-family: inherit;
 	font-size: 2rem;
-	font-weight: 700;
 	-moz-appearance: textfield;
 	color: #4682B4;
+	font-weight: 700;
 
 }
 
