@@ -1,6 +1,28 @@
 (function(win) {
 	$(document).ready(function() {
 		var $inputs = $(".sudoku_input");
+		populateBoard(new SudokuBoardGenerator().board, $inputs);
+
+		$('#board').on('keyup', handleSudokuUserInput);
+
+		//prevent input number field from changing the displayed value on scroll
+		$('#sudoku_input_wrap').on('focus', '.sudoku_input', function (event) {
+			$(this).on('mousewheel.disableScroll', function (event) {
+				event.preventDefault();
+			});
+		});
+		$('#sudoku_input_wrap').on('blur', '.sudoku_input', function (event) {
+			$(this).off('mousewheel.disableScroll');
+		});
+
+		function populateBoard(board, $inputs) {
+			for(var i = 0; i < board.length; i++) {
+				if (board[i]) {
+					$($inputs[i]).attr("readonly", "");
+					$inputs[i].value = board[i];
+				}
+			}
+		}
 
 		function handleSudokuUserInput(event) {
 			var $input = $(event.target), input = $input.val();
@@ -90,17 +112,5 @@
 				}
 			}
 		}
-
-		$('#board').on('keyup', handleSudokuUserInput);
-
-		//prevent input number field from changing the displayed value on scroll
-		$('#sudoku_input_wrap').on('focus', '.sudoku_input', function (event) {
-			$(this).on('mousewheel.disableScroll', function (event) {
-				event.preventDefault();
-			});
-		});
-		$('#sudoku_input_wrap').on('blur', '.sudoku_input', function (event) {
-			$(this).off('mousewheel.disableScroll');
-		});
 	});
 })(window);
