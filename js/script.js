@@ -1,7 +1,8 @@
 (function(win) {
 	$(document).ready(function() {
 		var $inputs = $(".sudoku_input");
-		populateBoard(new SudokuBoardGenerator().board, $inputs);
+		var puzzle = new SudokuBoardGenerator();
+		populateUI(puzzle.board, $inputs);
 
 		$('#board').on('keyup', handleSudokuUserInput);
 
@@ -15,7 +16,15 @@
 			$(this).off('mousewheel.disableScroll');
 		});
 
-		function populateBoard(board, $inputs) {
+		$("#new_game").click(function() {
+			location.reload();
+		});
+
+		$("#solve").click(function() {
+			populateUI(puzzle.solution, $inputs);
+		});
+
+		function populateUI(board, $inputs) {
 			for(var i = 0; i < board.length; i++) {
 				if (board[i]) {
 					$($inputs[i]).attr("readonly", "");

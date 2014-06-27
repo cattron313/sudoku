@@ -24,6 +24,9 @@ $table_border_width: 15px;
 $table_border_outer_color: grey;
 $table_border_inner_color: gainsboro;
 
+$button_width: 200px;
+$button_height: $button_width / 4;
+
 //desktop
 $table_border: $table_border_width groove $table_border_outer_color;
 $td_border: $table_border_width/3 groove $table_border_inner_color;
@@ -70,7 +73,7 @@ $phone_td_border: $table_border_width / 5 groove $table_border_inner_color;
 	}
 }
 
-/*START: desktop board styling*/
+/*START: desktop styling*/
 #board {
 	margin: 0 auto;
 	border: $table_border;
@@ -108,9 +111,31 @@ td {
 		color: $color_board_text;
 	}
 }
-/*END: desktop board styling*/
 
-/*START: tablet board styling*/
+.buttons {
+	text-align:center;
+}
+
+#new_game, #solve {
+	margin: 10px;
+	width: $button_width;
+	height: $button_height;
+	background: #00F;
+	color: white;
+	border-bottom: 5px outset #00D;
+	text-transform: uppercase;
+
+	&:hover {
+		background: #00D;
+	}
+
+	&:active {
+		border: none;
+	}
+}
+/*END: desktop styling*/
+
+/*START: tablet styling*/
 @media screen and (min-width: $max_phone_width + 1) and (max-width: $max_tablet_width) {
 	#board {
 		border: $tablet_table_border;
@@ -134,9 +159,9 @@ td {
 		font-size: 1.75 * $baseline_font_size;
 	}
 }
-/*END: tablet board styling*/
+/*END: tablet styling*/
 
-/*START: phone board styling*/
+/*START: phone styling*/
 @media screen and (max-width: $max_phone_width) {
 	#board {
 		border: $phone_table_border;
@@ -159,5 +184,9 @@ td {
 		height: $input_sudoku_height * .39;
 		font-size: 1.5 * $baseline_font_size;
 	}
+
+	#new_game, #solve {
+		width: $button_width * 0.625;
+	}
 }
-/*END: phone board styling */
+/*END: phone styling */

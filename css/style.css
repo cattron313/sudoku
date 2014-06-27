@@ -30,7 +30,7 @@ body {
   #how_to_play:hover {
     text-decoration: underline; }
 
-/*START: desktop board styling*/
+/*START: desktop styling*/
 #board {
   margin: 0 auto;
   border: 15px groove grey; }
@@ -60,8 +60,24 @@ td {
   .sudoku_input[readonly] {
     color: black; }
 
-/*END: desktop board styling*/
-/*START: tablet board styling*/
+.buttons {
+  text-align: center; }
+
+#new_game, #solve {
+  margin: 10px;
+  width: 200px;
+  height: 50px;
+  background: #00F;
+  color: white;
+  border-bottom: 5px outset #00D;
+  text-transform: uppercase; }
+  #new_game:hover, #solve:hover {
+    background: #00D; }
+  #new_game:active, #solve:active {
+    border: none; }
+
+/*END: desktop styling*/
+/*START: tablet styling*/
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   #board {
     border: 10px groove grey; }
@@ -79,8 +95,8 @@ td {
     width: 60px;
     height: 48px;
     font-size: 1.75rem; } }
-/*END: tablet board styling*/
-/*START: phone board styling*/
+/*END: tablet styling*/
+/*START: phone styling*/
 @media screen and (max-width: 480px) {
   #board {
     border: 7.5px groove grey; }
@@ -97,5 +113,8 @@ td {
   .sudoku_input {
     width: 39px;
     height: 31.2px;
-    font-size: 1.5rem; } }
-/*END: phone board styling */
+    font-size: 1.5rem; }
+
+  #new_game, #solve {
+    width: 125px; } }
+/*END: phone styling */
