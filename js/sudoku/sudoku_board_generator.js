@@ -1,4 +1,4 @@
-(function(win) {
+(function(win, $, _) {
 	$(document).ready(function() {
 		win.SudokuBoardGenerator = function() {
 			var collections = [];
@@ -130,4 +130,4 @@
 			return Math.floor(Math.random() * (max - min)) + min;
 		}
 	});
-})(window);
+})(window, $, _);

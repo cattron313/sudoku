@@ -1,4 +1,4 @@
-(function(win) {
+(function(win, $) {
 	$(document).ready(function() {
 		win.Sudoku = function(obj) {
 			//making sure input is an array of strings or a jQuery collection of inputs
@@ -175,4 +175,4 @@
 			return true;
 		};
 	});
-})(window);
+})(window, $);
