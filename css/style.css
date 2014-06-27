@@ -81,7 +81,7 @@ td {
 
 /*END: large monitor styling*/
 /*START: tablet and laptop styling*/
-@media screen and (min-width: 481px) and (max-width: 1224px) {
+@media screen and (min-width: 481px) and (max-width: 1366px) {
   #board {
     border: 10px groove grey; }
 
