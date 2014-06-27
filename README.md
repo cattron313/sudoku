@@ -1,7 +1,5 @@
-sudoku
+Sudoku Puzzle
 ======
-
-Sudoku game
 
 I used jQuery, qUnit, Underscrore, SASS, Jade, HTML, CSS, and Javascript for this project.  My plan of attack for this task was to:
 
@@ -20,7 +18,7 @@ I used jQuery, qUnit, Underscrore, SASS, Jade, HTML, CSS, and Javascript for thi
 **SASS** - It helped me to not repeat myself for some of the grid styling. Only used LESS before.  Took it as an opportunity to learn.
 **Jade** - It helped me to not repeat myself for the HTML grid structure.  Never used it before.  Took it as an opportunity to learn.
 
-##Application Structure**
+##Application Structure
 
 I chose to structure the grid as a HTML table because I thought it was syntatically correct.  To me, a sudoku grid is a table of numbers.  I structured the SASS based on 3 different screen sizes, phone, laptop/tablet, and large monitor.  There were only a few changes that needed to be made to get the HTML to work across all of these sizes which was good.  I used two main classes Sudoku and SudokuBoardGenerator.  The Sudoku class was primarily responsible for telling me when someone had successfully solved the puzzle.  The game is played with a listener on the HTML table.  As the user enters in input, that listener determines if the input is valid and updates the user interface accordingly to give help.  It also checks calls a method on the Sudoku class to check if the puzzle has been solved.
 
