@@ -17,7 +17,8 @@
 		});
 
 		$("#new_game").click(function(event) {
-			location.reload();
+			puzzle = new SudokuBoardGenerator();
+			populateUI(puzzle.board, $inputs);
 		});
 
 		$("#solve").click(function(event) {
@@ -27,9 +28,11 @@
 
 		function populateUI(board, $inputs) {
 			for(var i = 0; i < board.length; i++) {
-				$inputs[i].value = ""; //clear every value first
+				var $inputAtI = $($inputs[i]);
+				$inputs[i].value = ""; //reset every input first
+				$inputAtI.removeAttr("readonly");
 				if (board[i]) {
-					$($inputs[i]).attr("readonly", "");
+					$inputAtI.attr("readonly", "");
 					$inputs[i].value = board[i];
 				}
 			}
