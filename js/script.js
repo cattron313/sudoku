@@ -17,6 +17,7 @@
 		});
 
 		$("#new_game").click(function(event) {
+			$inputs.parent().removeClass("duplicate_row duplicate_col duplicate_sq valid_row valid_col valid_sq");
 			puzzle = new SudokuBoardGenerator();
 			populateUI(puzzle.board, $inputs);
 		});
@@ -56,10 +57,7 @@
 
 				//check if user won game
 				//first check if all inputs are filled in, then use isSolved method.
-				if (allInputsAreFilled($inputs) && game.isSolved()) {
-					$('#board').off('keyup', handleSudokuUserInput);
-					alert("You won!");
-				}
+				if (allInputsAreFilled($inputs) && game.isSolved()) { alert("You won!");}
 			} else if (!$input[0].valueAsNumber || input.length !== 1) {
 				//input is not valid clear input
 				$input.val("");
