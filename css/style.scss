@@ -32,7 +32,7 @@ $table_border: $table_border_width groove $table_border_outer_color;
 $td_border: $table_border_width/3 groove $table_border_inner_color;
 
 //tablet and laptop
-$max_laptop_width: 1224px;
+$max_laptop_width: 1366px;
 $tablet_table_border:($table_border_width * 2 / 3) groove $table_border_outer_color;
 $tablet_td_border:$table_border_width / 4 groove $table_border_inner_color;
 
