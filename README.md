@@ -12,11 +12,11 @@ I used jQuery, qUnit, Underscrore, SASS, Jade, HTML, CSS, and Javascript for thi
 
 ##Why Did I Use...
 
-**jQuery** - I needed an easy way to manipulate the DOM accross browsers.
-**qUnit** - I needed unit testing for the Sudoku methods.  Never used it before.  Took it as an opportunity to learn.  I would have liked someone to look at my tests to see if they are good examples of TDD during a code review.
-**Underscore** - The set fuctions for arrays made generating sudoku puzzles easier.
-**SASS** - It helped me to not repeat myself for some of the grid styling. Only used LESS before.  Took it as an opportunity to learn.
-**Jade** - It helped me to not repeat myself for the HTML grid structure.  Never used it before.  Took it as an opportunity to learn.
+**jQuery** - I needed an easy way to manipulate the DOM accross browsers.     
+**qUnit** - I needed unit testing for the Sudoku methods.  Never used it before.  Took it as an opportunity to learn.  I would have liked someone to look at my tests to see if they are good examples of TDD during a code review.     
+**Underscore** - The set fuctions for arrays made generating sudoku puzzles easier.    
+**SASS** - It helped me to not repeat myself for some of the grid styling. Only used LESS before.  Took it as an opportunity to learn.    
+**Jade** - It helped me to not repeat myself for the HTML grid structure.  Never used it before.  Took it as an opportunity to learn.    
 
 ##Application Structure
 
