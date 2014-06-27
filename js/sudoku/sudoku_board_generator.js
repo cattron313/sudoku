@@ -7,7 +7,10 @@
 			initCollections(collections);
 			fillEmptyBoard(this.solution, collections);
 			this.board = this.solution.slice(0);
+			this.printBoard();
+			console.log("--------");
 			convertBoardToPuzzle(this.board);
+			this.printBoard();
 
 			function convertBoardToPuzzle(board) {
 				//randomly remove numbers from board
