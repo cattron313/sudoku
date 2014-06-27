@@ -21,6 +21,7 @@
 		});
 
 		$("#solve").click(function() {
+			$inputs.parent().removeClass("duplicate_row duplicate_col duplicate_sq valid_row valid_col valid_sq");
 			populateUI(puzzle.solution, $inputs);
 		});
 
