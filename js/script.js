@@ -26,6 +26,7 @@
 
 		function populateUI(board, $inputs) {
 			for(var i = 0; i < board.length; i++) {
+				$inputs[i].value = ""; //clear every value first
 				if (board[i]) {
 					$($inputs[i]).attr("readonly", "");
 					$inputs[i].value = board[i];
