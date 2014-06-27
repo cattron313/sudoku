@@ -1,4 +1,4 @@
-(function(win) {
+(function(win, $) {
 	$(document).ready(function() {
 		var $inputs = $(".sudoku_input");
 		var puzzle = new SudokuBoardGenerator();
@@ -16,11 +16,11 @@
 			$(this).off('mousewheel.disableScroll');
 		});
 
-		$("#new_game").click(function() {
+		$("#new_game").click(function(event) {
 			location.reload();
 		});
 
-		$("#solve").click(function() {
+		$("#solve").click(function(event) {
 			$inputs.parent().removeClass("duplicate_row duplicate_col duplicate_sq valid_row valid_col valid_sq");
 			populateUI(puzzle.solution, $inputs);
 		});
@@ -124,4 +124,4 @@
 			}
 		}
 	});
-})(window);
+})(window, $);
