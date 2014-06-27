@@ -31,8 +31,8 @@ $button_height: $button_width / 4;
 $table_border: $table_border_width groove $table_border_outer_color;
 $td_border: $table_border_width/3 groove $table_border_inner_color;
 
-//tablet
-$max_tablet_width: 1024px;
+//tablet and laptop
+$max_laptop_width: 1224px;
 $tablet_table_border:($table_border_width * 2 / 3) groove $table_border_outer_color;
 $tablet_td_border:$table_border_width / 4 groove $table_border_inner_color;
 
@@ -43,6 +43,7 @@ $phone_td_border: $table_border_width / 5 groove $table_border_inner_color;
 
 #main {
 	font-family: "Maven Pro", Helvetica, Arial, sans-serif;
+	min-width: 400px;
 }
 
 /* highlight correctly filled-in squares, rows, and columns */
@@ -60,7 +61,7 @@ $phone_td_border: $table_border_width / 5 groove $table_border_inner_color;
 }
 
 #title {
-	margin: 50px 0 10px;
+	margin: 10px 0;
 	font-size: 3 * $baseline_font_size;
 	text-align: center;
 	font-weight: 700;
@@ -73,7 +74,7 @@ $phone_td_border: $table_border_width / 5 groove $table_border_inner_color;
 	}
 }
 
-/*START: desktop styling*/
+/*START: large monitor styling*/
 #board {
 	margin: 0 auto;
 	border: $table_border;
@@ -124,6 +125,7 @@ td {
 	color: white;
 	border-bottom: 5px outset #00D;
 	text-transform: uppercase;
+	-webkit-appearance: none; /* overrides webkit default styling on mobile */
 
 	&:hover {
 		background: #00D;
@@ -133,10 +135,10 @@ td {
 		border: none;
 	}
 }
-/*END: desktop styling*/
+/*END: large monitor styling*/
 
-/*START: tablet styling*/
-@media screen and (min-width: $max_phone_width + 1) and (max-width: $max_tablet_width) {
+/*START: tablet and laptop styling*/
+@media screen and (min-width: $max_phone_width + 1) and (max-width: $max_laptop_width) {
 	#board {
 		border: $tablet_table_border;
 	}
@@ -159,7 +161,7 @@ td {
 		font-size: 1.75 * $baseline_font_size;
 	}
 }
-/*END: tablet styling*/
+/*END: tablet and laptop styling*/
 
 /*START: phone styling*/
 @media screen and (max-width: $max_phone_width) {
